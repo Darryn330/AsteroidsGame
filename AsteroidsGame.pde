@@ -1,10 +1,40 @@
-//your variable declarations here
+Star[] stars;
+Spaceship diglet = new Spaceship(); 
 public void setup() 
 {
-  //your code here
+  size(1000,1000);
+
+  stars = new Star[100];
+
+  for (int i = 0; i < stars.length; i++)
+    stars[i] = new Star();
 }
 public void draw() 
 {
-  //your code here
+  background(0,0,0);
+  diglet.show();
+  diglet.move();
+  for (int i = 0; i < stars.length; i++)
+    stars[i].show();
 }
-
+public void keyPressed() 
+{
+ if (key == 'w')
+   diglet.accelerate(2);
+   
+ if (key == 'b') //this is a boost by the way
+   diglet.accelerate(50);
+   diglet.showRocket();
+  
+ if (key == 'd') //I like the turns ticked so that I can see how far I've turned
+   diglet.turn(10);
+   
+ if (key == 'a')
+   diglet.turn(-10);
+  
+ if (key == 's')
+   diglet.accelerate(-3);
+ 
+ if (key == 'h')
+   diglet.hyperspace();
+}
