@@ -1,5 +1,6 @@
 Star[] stars;
 Spaceship diglet = new Spaceship(); 
+ArrayList<Asteroid> asteroids = new ArrayList<Asteroid>();
 public void setup() 
 {
   size(1000,1000);
@@ -8,15 +9,43 @@ public void setup()
 
   for (int i = 0; i < stars.length; i++)
     stars[i] = new Star();
+    
+  for (int i = 0; i < 10; i++) {
+    asteroids.add(new Asteroid());
+  }
 }
 public void draw() 
 {
   background(0,0,0);
   diglet.show();
   diglet.move();
+  
   for (int i = 0; i < stars.length; i++)
     stars[i].show();
+    
+  for (int i = 0; i < asteroids.size(); i++) {
+    asteroids.get(i).move();
+    asteroids.get(i).show();
+  }
+  
+  // Check for collisions
+  for (int i = asteroids.size() - 1; i >= 0; i--) {
+  
+    Asteroid a = asteroids.get(i);
+  
+    double distance = dist(
+      (float)diglet.getCenterX(),
+      (float)diglet.getCenterY(),
+      (float)a.getCenterX(),
+      (float)a.getCenterY()
+    );
+  
+    if (distance < 25) {
+      asteroids.remove(i);
+    }
+  }
 }
+
 public void keyPressed() 
 {
  if (key == 'w')
