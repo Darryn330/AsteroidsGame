@@ -23,4 +23,12 @@ public void showRocket() {
     myCenterY = Math.random() * height;
     myPointDirection = Math.random() * 360;
   }
+   
+  public double getCenterX() {
+    return myCenterX;
+  }
+  
+  public double getCenterY() {
+    return myCenterY;
+  }
 }
