@@ -51,9 +51,10 @@ public void keyPressed()
  if (key == 'w')
    diglet.accelerate(2);
    
- if (key == 'b') //this is a boost by the way
+ if (key == 'b') {//this is a boost by the way
    diglet.accelerate(50);
    diglet.showRocket();
+}
   
  if (key == 'd') //I like the turns ticked so that I can see how far I've turned
    diglet.turn(10);
