@@ -39,7 +39,7 @@ public void draw()
       (float)a.getCenterX(),
       (float)a.getCenterY()
     );
-  
+
     if (distance < 25) {
       asteroids.remove(i);
     }
